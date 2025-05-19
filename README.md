@@ -57,21 +57,25 @@
 
 ## 📝 源码结构
 
-\`\`\`
+项目的主要源码组织如下：
+
+```
 src/
-├── commands/          # 命令实现
+├── commands/              # 命令实现
 │   ├── addHashTags.ts    # 添加 ## 标记
 │   ├── translationI18n.ts # 翻译实现
-│   └── copyI18n.ts      # 文件复制
-├── class/            # 核心类
-└── extension.ts      # 扩展入口
-\`\`\`
+│   └── copyI18n.ts       # 文件复制
+│
+├── class/                # 核心类
+└── extension.ts          # 扩展入口
+
+```
 
 ## ⚙️ 开发环境设置
 
 1. 克隆仓库
 \`\`\`bash
-git clone https://github.com/your-username/vscode-extension
+git clone https://github.com/oofengoo/vscode-extension-i18n-learn.git
 \`\`\`
 
 2. 安装依赖
