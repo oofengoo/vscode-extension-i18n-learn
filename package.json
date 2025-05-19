@@ -1,0 +1,151 @@
+{
+  "name": "workextension",
+  "displayName": "workextension",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "keybindings": [
+      {
+        "command": "workExtension.addHashTags",
+        "key": "ctrl+3",
+        "mac": "ctrl+3",
+        "when": "editorTextFocus"
+      }
+    ],
+    "commands": [
+      {
+        "command": "workExtension.translationI18n",
+        "title": "翻译多语言"
+      },
+      {
+        "command": "workExtension.addHashTags",
+        "title": "添加##标签"
+      },
+      {
+        "command": "workExtension.copyI18n",
+        "title": "复制多语言到项目",
+        "icon": {
+          "dark": "images/collapse_dark.svg",
+          "light": "images/collapse_light.svg"
+        }
+      },
+      {
+        "command": "workExtension.matchAndShow",
+        "title": "匹配并显示内容",
+        "icon": {
+          "dark": "images/show.svg",
+          "light": "images/show.svg"
+        }
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "workExtension.translationI18n"
+        },
+        {
+          "when": "editorFocus",
+          "command": "workExtension.addHashTags"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "workExtension.matchAndShow",
+          "when": "view == workExtensionActivity",
+          "group": "navigation@1"
+        },
+        {
+          "command": "workExtension.copyI18n",
+          "when": "view == workExtensionActivity",
+          "group": "navigation@2"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "workExtension.matchAndShow",
+          "when": "view == workExtensionActivity"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "workExtension-explorer",
+          "title": "工作扩展",
+          "icon": "icons/auto.svg"
+        }
+      ]
+    },
+    "views": {
+      "workExtension-explorer": [
+        {
+          "id": "workExtensionActivity",
+          "name": "workExtension"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "工作插件配置",
+      "type": "object",
+      "properties": {
+        "workExtension.translationI18nService": {
+          "type": "string",
+          "description": "翻译服务地址",
+          "default": ""
+        },
+        "workExtension.translationI18nToken": {
+          "type": "string",
+          "description": "翻译服务Token",
+          "default": ""
+        },
+        "workExtension.translationI18nProjectType": {
+          "type": "number",
+          "description": "翻译服务项目类型，6500机构版，5500企业版",
+          "default": 6500
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.13.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.3",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dayjs": "^1.11.13"
+  }
+}
