@@ -18,9 +18,26 @@
 
 ## 🚀 快速开始
 
-1. 在 VSCode 中安装扩展
-2. 打开需要处理多语言的文件
-3. 使用以下功能：
+1. Fork 项目
+   - 访问 https://github.com/oofengoo/vscode-extension-i18n-learn
+   - 点击右上角的 "Fork" 按钮将项目复制到自己的仓库
+
+2. 克隆项目
+   ```bash
+   git clone https://github.com/你的用户名/vscode-extension-i18n-learn.git
+   ```
+
+3. 安装依赖
+   ```bash
+   cd vscode-extension-i18n-learn
+   npm install
+   ```
+
+4. 打开 VSCode 并启动调试
+   - 按 F5 启动调试
+   - 在新窗口中测试功能
+
+5. 使用以下功能：
    - 选中文本并使用快捷键 `Ctrl+3` 添加 ## 标记
    - 当前文件右键选择翻译多语言按钮进行翻译
    - 使用命令面板选择 "复制多语言文件"进行下载多语言
@@ -30,10 +47,12 @@
 ## 🔧 配置项
 
 在 VSCode 设置中可以配置：
+
 - 翻译服务地址
 - 翻译服务Token
 - 翻译服务项目类型，6500机构版，5500企业版
-![配置界面示例](images/setting.png)
+  ![配置界面示例](uiview/setting.png)
+
 ## 📖 扩展开发学习要点
 
 本扩展涉及以下 VSCode 扩展开发知识点：
@@ -71,22 +90,7 @@ src/
 
 ```
 
-## ⚙️ 开发环境设置
-
-1. 克隆仓库
-\`\`\`bash
-git clone https://github.com/oofengoo/vscode-extension-i18n-learn.git
-\`\`\`
-
-2. 安装依赖
-\`\`\`bash
-npm install
-\`\`\`
-
-3. 打开 VSCode 并启动调试
-   - 按 F5 启动调试
-   - 在新窗口中测试功能
-
-
+## 左侧自定义视图
+  ![左侧视图界面示例](uiview/sidebar.png)
 
 如果这个扩展帮助到你，请给个 ⭐️Star 支持一下！
